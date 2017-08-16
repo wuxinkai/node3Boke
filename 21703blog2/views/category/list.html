@@ -1,0 +1,26 @@
+<%include ../include/header.html%>
+<div class="row"> <%=title%></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <a href="/category/classify" class="btn btn-primary btn-sm">添加分类</a>
+        <table class="table table-striped">
+            <thead>
+                <th class="text-center">分类名称</th>
+                <th class="text-center">操作</th>
+            </thead>
+            <tbody>
+            <%
+            categories.forEach(function(category,index){%>
+                <tr>
+                    <td class="text-center"><%=category.name%></td>
+                    <td class="text-center">
+                        <a href="/category/delete/<%=category._id%>" class="btn btn-danger btn-sm">删除</a>
+                    </td>
+                </tr>
+            <% })
+            %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%include ../include/footer.html%>

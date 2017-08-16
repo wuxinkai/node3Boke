@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .avatar{
+            width:25px;
+            height:25px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <nav class="navbar  navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">吴鑫凯的练习</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <%
+                    if(user){%>
+                    <li><a href="/category/list">分类管理</a></li>
+                    <li><a href="/article/add">增加内容</a></li>
+                    <li><a href="/user/signout">退出</a></li>
+                     <%}else{%>
+                    <li><a href="/user/signup">注册</a></li>
+                    <li ><a href="/user/signin">登录</a></li>
+                    <%}
+                    %>
+                </ul>
+                <!--搜索功能-->
+                <form action="/" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" name="keyword" class="form-control" value="<%=keyword%>">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+
+                <!--右侧的登录人信息-->
+
+                <%if(user){%>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">
+                        <img class="avatar" src="<%=user.avatar%>" alt="<%=user.username%>">
+                        <%=user.username%>
+                    </a></li>
+                </ul>
+                <%}%>
+            </div>
+        </div>
+    </nav>
+
+<!--提示框-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <%if(success){%>
+                <div class="alert alert-success text-center">
+                    <%=success%>
+                </div>
+                <%}%>
+                <%if(error){%>
+                <div class="alert alert-danger text-center">
+                    <%=error%>
+                </div>
+                <%}%>
+            </div>
+        </div>
