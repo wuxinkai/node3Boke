@@ -1,0 +1,27 @@
+<%- include include/header.html%>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <%articles.forEach(function(article){%>
+        <div class="row">
+            <div class=" col-md-2">
+                <a href="" style="display: block;margin-top: 15px">
+                    <img style="background-size: 100%;width: 100px;height: 100px;" class="media-object avatar" src="<%=article.imgs%>" alt="">
+                </a>
+            </div>
+            <div class="media col-md-10">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a href="/articles/detail/<%=article.id%>">
+                            <%=article.title%>
+                        </a>
+                    </h4>
+                    <p><%-article.content%></p>
+                    <p>发表时间:<%=article.createAt.toLocaleString()%></p>
+                </div>
+            </div>
+        </div>
+        <%})%>
+    </div>
+</div>
+
+<%- include include/footer.html%>

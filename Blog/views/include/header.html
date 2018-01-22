@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的学习</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap.css">
+
+    <!--<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">-->
+
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">自我学习</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <%
+                if(user){%>
+                <li><a href="/category/list">分类管理</a></li>
+                <li><a href="/articles/add">增加内容</a></li>
+                <li><a href="/users/logout">退出</a></li>
+                <%}else{%>
+                <li><a href="/users/reg">注册</a></li>
+                <li><a href="/users/login">登陆</a></li>
+                <%}
+                %>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--提示框-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <%if(success){%>
+            <div class="alert alert-success text-center">
+                <%=success%>
+            </div>
+            <%}%>
+            <%if(error){%>
+            <div class="alert alert-danger text-center">
+                <%=error%>
+            </div>
+            <%}%>
+        </div>
+    </div>

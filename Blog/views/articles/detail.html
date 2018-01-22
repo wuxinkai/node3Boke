@@ -1,0 +1,22 @@
+<%- include ../include/header.html%>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><%=article.title%></h3>
+            </div>
+            <div class="panel-body">
+                <%=article.content%>
+            </div>
+            <div class="panel-body">
+                <img style="width: 300px;height: 100px" src="<%=article.imgs%>" alt="">
+            </div>
+            <div class="panel-footer">
+                <a href="/articles/update/<%=article.id%>" class="btn btn-warning">修改</a>
+                <a href="/articles/delete/<%=article.id%>" class="btn btn-danger">删除</a>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../include/footer.html%>
