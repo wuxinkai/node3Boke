@@ -26,8 +26,19 @@ router.get('/add', function(req, res, next) {
 //提交文章数据
 router.post('/add',upload.single('img'), function(req, res, next) {
     var articles =req.body;
+
+
     var user = req.session.user;// 获取作者
      articles.user = user;//把页面登陆存储的作者给 articles这个对象
+
+    var myDate = new Date();
+    // +myDate.toLocaleTimeString(); //   可以获取当前时间
+    //可以获取当前日期
+    console.log(articles)
+    if(articles.createAt==''){ //页面没有输入值的时候才走这个
+        articles.createAt =  myDate.toLocaleDateString()
+    }
+
     if(req.file){
         articles.imgs = '/images/'+req.file.filename;//将文件路径存入数据库
     }

@@ -2,7 +2,8 @@ var mysql =require('mysql');
 var connection = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'123123',
+    // password:'123123', //家里数据库密码
+    password:'wxk123456', //公司数据库密码
     database:'student'//数据库的名字
 })
 connection.connect();

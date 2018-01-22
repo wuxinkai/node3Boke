@@ -23,5 +23,16 @@
         <%})%>
     </div>
 </div>
+<div id="pagination_10"></div>
+<script type="text/javascript">
+    $("#pagination_10").pagination({
+        css: 'css-2',
+        totalPage: 18,
+        callBack: function (currPage, pageSize) {
+            articles.currPage,articles.pageSize
+
+        }
+    });
+</script>
 
 <%- include include/footer.html%>
