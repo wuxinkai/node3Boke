@@ -2,7 +2,8 @@ let express = require('express');
 let {Category} = require('../model');
 let router = express.Router();
 router.get('/list',function(req,res){
-  Category.find({},function(err,categories){
+  Category.find({}, function (err, categories) {
+    console.log(categories);
     res.render('category/list',{title:'分类管理',categories});
   });
 });

@@ -34,7 +34,6 @@ connection.query(sql,function(err,rows,result){
 /*登录 当用户get请求 /user/reg的时候 执行回调*/
 router.get('/login',validate.checkNotLogin, function(req, res, next) {
     var userData=req.body;// 获取提交内容
-
     res.render('user/login')
 });
 
