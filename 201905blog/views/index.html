@@ -1,39 +1,72 @@
 <%- include include/header.html%>
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <%articles.forEach(function(article){%>
-        <div class="row">
-            <div class=" col-md-2">
-                <a href="" style="display: block;margin-top: 15px">
-                    <img style="background-size: 100%;width: 100px;height: 100px;" class="media-object avatar" src="<%=article.imgs%>" alt="">
-                </a>
-            </div>
-            <div class="media col-md-10">
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a href="/articles/detail/<%=article.id%>">
-                            <%=article.title%>
-                        </a>
-                    </h4>
-                    <p><%-article.content%></p>
-                    <p>发表时间:<%=article.createAt.toLocaleString()%></p>
-                    <p>国籍:<%=article.name%></p>
-                </div>
-            </div>
+  <div class="col-md-10 col-md-offset-1">
+    <%articles.forEach(function(article){%>
+    <div class="row">
+      <div class=" col-md-2">
+        <a href="" style="display: block;margin-top: 15px">
+          <img style="background-size: 100%;width: 100px;height: 100px;" class="media-object avatar"
+            src="<%=article.imgs%>" alt="">
+        </a>
+      </div>
+      <div class="media col-md-10">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <a href="/articles/detail/<%=article.id%>">
+              <%=article.title%>
+            </a>
+          </h4>
+          <p><%-article.content%></p>
+          <p>发表时间:<%=article.createAt.toLocaleString()%></p>
+          <p>国籍:<%=article.name%></p>
         </div>
-        <%})%>
+      </div>
     </div>
+    <%})%>
+  </div>
 </div>
-<div id="pagination_10"></div>
-<script type="text/javascript">
-    $("#pagination_10").pagination({
-        css: 'css-2',
-        totalPage: 18,
-        callBack: function (currPage, pageSize) {
-            articles.currPage,articles.pageSize
-
-        }
+<div class="footer-fenye">
+  <!-- <div id="example"></div> -->
+  <div class="zongshu">总共<span id="zongShu"></span>条</div>
+</div>
+<script type='text/javascript'>
+  var totalPages = ''
+  window.onload = function () {
+    //获取总数页码
+    $.ajax({
+      url: "/",
+      type: "post",
+      data: {},
+      success: function (result) {
+        totalPages = result.totalCount;
+        $('#zongShu').html(totalPages)
+        // pageFenye()
+      }
     });
+  }
+  //页码切换
+  // function pageFenye() {
+  //   var options = {
+  //     bootstrapMajorVersion: 1,
+  //     currentPage: 1, //当前页
+  //     totalPages: totalPages, //总数
+  //     numberOfPages: 3, //显示多少页
+  //     onPageClicked: function (e, originalEvent, type, page) { //为操作按钮绑定click事件
+  //       $.ajax({
+  //         url: "/fenye",
+  //         type: "post",
+  //         data: {curPage:page,pageSize:5},
+  //         success: function (result) {
+  //           totalPages = result.totalCount;
+
+  //           pageFenye()
+  //         }
+  //       });
+  //     },
+  //   }
+  //   $('#example').bootstrapPaginator(options);
+  // }
 </script>
+
 
 <%- include include/footer.html%>

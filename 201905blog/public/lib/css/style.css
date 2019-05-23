@@ -289,3 +289,6 @@
 .whj_jqueryPaginationCss-5 div,.whj_jqueryPaginationCss-5 input,.whj_jqueryPaginationCss-5 select{
     margin: 2px;
 }
+
+.footer-fenye{display: flex;margin-bottom: 50px;}
+.zongshu{height: 70px;line-height: 70px;margin-left: 20px;}

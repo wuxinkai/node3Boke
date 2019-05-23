@@ -47,8 +47,8 @@ app.use(flash());//消息通知
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 //解析请求体 通过请求头的Content-Type
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 //处理静态文件中间件  指定静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
